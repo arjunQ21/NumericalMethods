@@ -5,6 +5,7 @@
 int iteration = 0;
 
 float f(float x){
+	//f(x) = x-sin(x)-1/2
 	return (x - sin(x) - 0.5) ;
 }
 float bisection(float a, float b){
@@ -29,10 +30,12 @@ float bisection(float a, float b){
 	}
 }
 main(){
-//	float a, b, c, fa, fb, fc, error ;
-float a, b ;
-printf("\nEnter range ");
-	printf("%d", bisection(1, 3)) ;
+	float a, b ;
+	printf("\nEnter range \na: ");
+	scanf("%f", &a) ;
+	printf("\nb:") ;
+	scanf("%f", &b) ;
+	bisection(a, b) ;
 }
 
 
