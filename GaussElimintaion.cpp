@@ -5,7 +5,7 @@
 //float 
 
 void gaussElimintaion( double mat[20][20], int n);
-void showMatrix( double mat[20][20], int n){
+void showMatrix( float mat[20][20], int n){
 	printf("\n") ;
 	for(int i = 0 ; i < n ; i++){
 		for(int j = 0 ; j <=n ; j++){
@@ -18,7 +18,8 @@ void showMatrix( double mat[20][20], int n){
 
 main(){
 	int i, j, k, n = 3 ;
-	 double coeffMatrix[20][20]  ;
+	 float coeffMatrix[20][20]  ;
+	 
 //	 = {
 //		{4, 1, -1, 3},
 //		{2, 7, 1, 19},
@@ -34,15 +35,20 @@ main(){
 		printf("A value between 3 and 20 is expected. \nExiting.") ;
 		return 0;
 	}
+	
 //	input part
 	for(i = 0 ; i < n ; i++){
+				showMatrix(coeffMatrix, n);
 		for(j = 0 ; j <= n ; j++){
 			printf("\nEnter element[%d][%d]: ", i + 1, j + 1);
 			scanf("%f", &coeffMatrix[i][j]) ;
+			
+//			printf("\nYou entered: %e", coeffMatrix[i][j]);
 		}
-		double
-		 h = coeffMatrix[i][0] ;
-		for(j = 0 ; j < n ; j++){
+//		showMatrix(coeffMatrix, n);
+		double h = coeffMatrix[i][0] ;
+		for(j = 0 ; j < n  ; j++){
+//			printf("\nj = %d, i = %d, n = %d, item = %d", j, i, n, coeffMatrix[i][j]);
 			if(coeffMatrix[i][j] > h) h = coeffMatrix[i][j] ; 
 		}
 		if(h != coeffMatrix[i][i]){
@@ -69,7 +75,7 @@ main(){
 //			
 				printf("\nPerforming R%d = R%d - %f*R%d\n", k+ 1, k+1, factor, i + 1 );
 			for(j = 0 ; j <=n ; j++){
-				if(k == j) continue ;
+//				if(k == j) continue ;
 				coeffMatrix[k][j] -= factor * coeffMatrix[i][j] ;
 			}
 			showMatrix(coeffMatrix, n) ;
@@ -80,7 +86,6 @@ main(){
 	getch();
 	
 }
-
 
 
 
